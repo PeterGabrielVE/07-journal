@@ -24,7 +24,8 @@
         <textarea placeholder="¿Que sucedió hoy?"  id="" cols="5" rows="5"></textarea>
     </div>
 
-    <Fab />
+    <Fab 
+        icon="fa-save" />
 
     <img 
             src="https://www.robertlandscapes.com/wp-content/uploads/2014/11/landscape-322100_1280.jpg" 
