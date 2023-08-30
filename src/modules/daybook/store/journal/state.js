@@ -1,4 +1,23 @@
 export default () => ({
     isLoading: true,
-    entries: [1,2,3,4,5,6]
+    entries: [
+        {
+        id: new Date().getTime(),
+        date: new Date().toDateString(),
+        text: "Laaaaa ",
+        picture: null
+        },
+        {
+            id: new Date().getTime() + 1000,
+            date: new Date().toDateString(),
+            text: "Laaaaa ",
+            picture: null
+        },
+        {
+            id: new Date().getTime() + 2000,
+            date: new Date().toDateString(),
+            text: "Laaaaa ",
+            picture: null
+        }
+    ]
 })
