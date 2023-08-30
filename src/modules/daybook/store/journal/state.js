@@ -4,13 +4,13 @@ export default () => ({
         {
         id: new Date().getTime(),
         date: new Date().toDateString(),
-        text: "Laaaaa ",
+        text: "Peter",
         picture: null
         },
         {
             id: new Date().getTime() + 1000,
             date: new Date().toDateString(),
-            text: "Laaaaa ",
+            text: "Lara",
             picture: null
         },
         {
