@@ -2,19 +2,19 @@ export default () => ({
     isLoading: true,
     entries: [
         {
-        id: new Date().getTime(),
+        id: '1',
         date: new Date().toDateString(),
         text: "Peter",
         picture: null
         },
         {
-            id: new Date().getTime() + 1000,
+            id: '2',
             date: new Date().toDateString(),
             text: "Lara",
             picture: null
         },
         {
-            id: new Date().getTime() + 2000,
+            id: '3',
             date: new Date().toDateString(),
             text: "Laaaaa ",
             picture: null
