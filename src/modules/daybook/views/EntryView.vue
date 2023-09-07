@@ -1,9 +1,9 @@
 <template>
     <div class="entry-title d-flex justify-content-between p-2">
         <div>
-            <span class="text-success fs-3 fw-bold">28</span>
-            <span class="mx-1 fs-3">Agosto</span>
-            <span class="mx-2 fs-4 fw-light">2023, Lunes</span>
+            <span class="text-success fs-3 fw-bold">{{ day }}</span>
+            <span class="mx-1 fs-3">{{ month }}</span>
+            <span class="mx-2 fs-4 fw-light">{{ yearDay }}</span>
         </div>
         <div>
             <button class="btn btn-danger mx-2">
@@ -21,7 +21,9 @@
     <hr>
 
     <div class="d-flex flex-column px-3 h-75">
-        <textarea placeholder="¿Que sucedió hoy?"  id="" cols="5" rows="5"></textarea>
+        <textarea 
+            v-model="entry.text"
+            placeholder="¿Que sucedió hoy?"  id="" cols="5" rows="5"></textarea>
     </div>
 
     <Fab 
@@ -37,6 +39,8 @@
 import { defineAsyncComponent } from 'vue'
 import { mapGetters } from 'vuex';
 
+import getDayMonthYear from '../helpers/getDayMonthYear'
+
 export default {
    props:{
         id:{
@@ -47,13 +51,32 @@ export default {
     components:{
         Fab: defineAsyncComponent( () => import('../components/Fab.vue') )
     },
+    data(){
+        return{
+            entry: null
+        }
+    },
     computed:{
-        ...mapGetters('journal', ['getEntriesById'])
+        ...mapGetters('journal', ['getEntriesById']),
+        day(){
+            const { day } = getDayMonthYear( this.entry.date )
+            return day
+        },
+        month(){
+            const { month } = getDayMonthYear( this.entry.date )
+            return month
+        },
+        yearDay(){
+            const { yearDay } = getDayMonthYear( this.entry.date )
+            return yearDay
+        }
     },
     methods:{
         loadEntry(){
             const entry = this.getEntriesById( this.id )
-            console.log(entry)
+            if( !entry ) this.$router.push({ name:'no-entry' })
+
+            this.entry = entry
         }
     },
     created(){
