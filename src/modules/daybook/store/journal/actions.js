@@ -1,11 +1,11 @@
 import journalApi from "@/api/journalApi"
 
 
-export const loadEntries = async (/*{ commit }*/) =>{
+export const loadEntries = async ({ commit }) =>{
     
     const { data } = await journalApi.get('/entry.json')
     console.log(data)
-   /* if ( !data ){
+    if ( !data ){
         commit('setEntries', [] )
         return
     }
@@ -18,7 +18,7 @@ export const loadEntries = async (/*{ commit }*/) =>{
         })
     }
 
-    commit('setEntries', entries )*/
+    commit('setEntries', entries )
 }
 
 export const updatedEntries = async (/*{ commit }*/) =>{
