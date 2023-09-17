@@ -37,7 +37,6 @@
         ...mapState( 'journal', ['isLoading'])
         },
         created(){
-            console.log('hi')
             this.loadEntries()
         }
     }

@@ -30,7 +30,9 @@
     </template>
     
     <Fab 
-        icon="fa-save" />
+        icon="fa-save" 
+        @on:click="saveEntry"
+    />
 
     <img 
             src="https://www.robertlandscapes.com/wp-content/uploads/2014/11/landscape-322100_1280.jpg" 
@@ -82,6 +84,9 @@ export default {
             if( !entry ) return this.$router.push({ name:'no-entry' })
 
             this.entry = entry
+        },
+        async saveEntry(){
+            console.log('Guardando entrada')
         }
     },
     created(){
