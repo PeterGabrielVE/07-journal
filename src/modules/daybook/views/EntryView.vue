@@ -80,6 +80,7 @@ export default {
             required: true
         }
     },
+    name:'EntryView',
     components: {
         Fab: defineAsyncComponent(() => import('../components/Fab.vue'))
     },
